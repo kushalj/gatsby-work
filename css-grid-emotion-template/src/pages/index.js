@@ -30,6 +30,7 @@ export default ({ data }) => {
             >
               <h3
                 className={css `
+                  color: black;
                   margin-bottom: ${rhythm(1 / 4)};
                 `}
               >

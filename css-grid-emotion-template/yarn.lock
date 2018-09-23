@@ -2419,7 +2419,7 @@ commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
 
-compass-vertical-rhythm@^1.4.5:
+compass-vertical-rhythm@^1.2.1, compass-vertical-rhythm@^1.4.5:
   version "1.4.5"
   resolved "https://registry.yarnpkg.com/compass-vertical-rhythm/-/compass-vertical-rhythm-1.4.5.tgz#4baa8d7068fda164d3675d706775d7547e8750f5"
   dependencies:
@@ -8951,9 +8951,28 @@ typography-normalize@^0.14.0:
   version "0.14.0"
   resolved "http://registry.npmjs.org/typography-normalize/-/typography-normalize-0.14.0.tgz#1d77c1fe2aaf4a51b3673c4c85c85a65a2d4b573"
 
+typography-theme-elk-glen@^0.16.9:
+  version "0.16.9"
+  resolved "https://registry.yarnpkg.com/typography-theme-elk-glen/-/typography-theme-elk-glen-0.16.9.tgz#a8669216a68b79da4b9322e95f1bee3531fcdb98"
+  dependencies:
+    compass-vertical-rhythm "^1.2.1"
+    gray-percentage "^2.0.0"
+    typography-breakpoint-constants "^0.15.10"
+
 typography-theme-kirkham@^0.16.3:
   version "0.16.3"
   resolved "https://registry.yarnpkg.com/typography-theme-kirkham/-/typography-theme-kirkham-0.16.3.tgz#77d02a70ccf563457ffe84d3cc4f22955abe8f63"
+  dependencies:
+    gray-percentage "^2.0.0"
+    typography-breakpoint-constants "^0.15.10"
+
+typography-theme-noriega@^0.15.10:
+  version "0.15.10"
+  resolved "https://registry.yarnpkg.com/typography-theme-noriega/-/typography-theme-noriega-0.15.10.tgz#1eab28603ee8034a8e69bdccf460e1dfe0001d85"
+
+typography-theme-twin-peaks@^0.15.11:
+  version "0.15.11"
+  resolved "https://registry.yarnpkg.com/typography-theme-twin-peaks/-/typography-theme-twin-peaks-0.15.11.tgz#3d0b9e57d9725bad5730e898cc47a89c3ffcca2e"
   dependencies:
     gray-percentage "^2.0.0"
     typography-breakpoint-constants "^0.15.10"
