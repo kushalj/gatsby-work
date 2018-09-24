@@ -1,36 +1,32 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { css } from "react-emotion"
+import styled, { css } from "react-emotion"
 import { rhythm } from "../utils/typography"
-import Layout from "../components/layout"
+import { Layout } from "../components"
+
+const IndexPageTitle = styled.h1 `
+  display: inline-block;
+  border-bottom: 1px solid;
+`
+
 
 export default ({ data }) => {
   console.log(data)
   return (
     <Layout>
       <div>
-        <h1
-          className={css `
-            display: inline-block;
-            border-bottom: 1px solid;
-          `}
-        >
-          Amazing Pandas Eating Things
-        </h1>
+        <IndexPageTitle>
+          Amazing Index Page Title!
+        </IndexPageTitle>
 
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <div key={node.id}>
             <Link
               to={node.fields.slug}
-              classname={css `
-                text-decoration: none;
-                color: inherit;
-              `}
             >
               <h3
                 className={css `
-                  color: black;
                   margin-bottom: ${rhythm(1 / 4)};
                 `}
               >
@@ -44,6 +40,7 @@ export default ({ data }) => {
                 </span>
               </h3>
             </Link>
+            
             <p>{node.excerpt}</p>
           </div>
         ))}
