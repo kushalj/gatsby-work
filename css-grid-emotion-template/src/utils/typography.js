@@ -1,5 +1,5 @@
 import Typography from "typography"
-import siteTheme from "typography-theme-noriega"
+import siteTheme from "typography-theme-judah"
 
 const typography = new Typography(siteTheme)
 

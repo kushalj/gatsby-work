@@ -7542,6 +7542,10 @@ react-hot-loader@^4.1.0:
     react-lifecycles-compat "^3.0.4"
     shallowequal "^1.0.2"
 
+react-icons@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-3.1.0.tgz#004bc8d8b64a5480cdebd86ccb72ba5930b0e434"
+
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
@@ -8956,6 +8960,13 @@ typography-theme-elk-glen@^0.16.9:
   resolved "https://registry.yarnpkg.com/typography-theme-elk-glen/-/typography-theme-elk-glen-0.16.9.tgz#a8669216a68b79da4b9322e95f1bee3531fcdb98"
   dependencies:
     compass-vertical-rhythm "^1.2.1"
+    gray-percentage "^2.0.0"
+    typography-breakpoint-constants "^0.15.10"
+
+typography-theme-judah@^0.15.10:
+  version "0.15.10"
+  resolved "https://registry.yarnpkg.com/typography-theme-judah/-/typography-theme-judah-0.15.10.tgz#d373037d5de56c88c895c8df2877f0ba9609c6c3"
+  dependencies:
     gray-percentage "^2.0.0"
     typography-breakpoint-constants "^0.15.10"
 

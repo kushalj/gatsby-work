@@ -10,7 +10,7 @@ const Grid = styled.div `
   grid-template-areas:
     "CardRow"
     "BreakingNews"
-    ""
+    "";
 
 `
 

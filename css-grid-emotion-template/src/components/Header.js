@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import styled, { css } from "react-emotion"
 import theme from '../../config/theme'
 // import { rhythm } from "../utils/typography"
+// import { FaBars } from 'react-icons/fa'
 
 const Header = styled.div `
   display: grid;
@@ -11,27 +12,30 @@ const Header = styled.div `
 `
 
 const HeaderContent = styled.div `
-  margin: 3em 2em 2em;
   display: flex;
   justify-content: space-around;
+  padding: 30px 0;
 `
 
 const HeaderMenu = styled.div `
   display: grid;
   align-items: stretch;
   background: ${theme.colors.themeColor1};
+  border-color: ${theme.colors.header_bg};
+  border-bottom: 1px solid;
 `
 
 const HeaderMenuItems = styled.div `
   display: flex;
   justify-content: center;
-  font-size: 0.6em;
-  font-weight: bold;
-  padding: 8px 30px;
+  padding: 9px 30px;
 `
 
-const MenuItem = styled.div `
-  margin: 0 20px;
+const MenuItem = styled.h3 `
+  margin: 0 15px;
+  font-size: 0.8em;
+  line-height: 1.4;
+  font-weight: bold;
 `
 
 const Social = styled.div `
