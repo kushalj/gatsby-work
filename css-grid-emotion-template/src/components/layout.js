@@ -1,9 +1,9 @@
 import React from "react"
-import { css } from "react-emotion"
+// import styled, { css } from "react-emotion"
 import { injectGlobal } from "emotion"
 import { StaticQuery, graphql } from "gatsby"
 import { Head, Header } from "../components"
-import { rhythm } from "../utils/typography"
+// import { rhythm } from "../utils/typography"
 import theme from '../../config/theme';
 
 injectGlobal`
@@ -27,31 +27,36 @@ injectGlobal`
   }
 `
 
+
 export default ({ children }) => (
   <StaticQuery
     query={graphql`
       query {
         site {
           siteMetadata {
-            title
+            title,
+            menuItems
           }
         }
       }
     `
     }
-
+        //   className={css`
+        //     margin: 0 auto;
+        //     max-width: 700px;
+        //     padding: ${rhythm(2)};
+        //     padding-top: ${rhythm(1.5)};
+        //   `}
+        // >
     render={data => (
-        <div
-          className={css`
-            margin: 0 auto;
-            max-width: 700px;
-            padding: ${rhythm(2)};
-            padding-top: ${rhythm(1.5)};
-          `}
-        >
+        <div>
+
           <Head siteTitle={data.site.siteMetadata.title} />
 
-          <Header siteTitle={data.site.siteMetadata.title}/>
+          <Header 
+            siteTitle={data.site.siteMetadata.title}
+            menuItems={data.site.siteMetadata.menuItems}
+          />
           
           {children}
 
