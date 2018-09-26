@@ -1,0 +1,176 @@
+import React from "react"
+import { css } from "react-emotion"
+import Carousel from "nuka-carousel"
+
+const colors = ['7732bb', '047cc0', '00884b', 'e3bc13', 'db7c00', 'aa231f'];
+
+class CardSlider extends React.Component {
+  constructor () {
+    super(...arguments)
+    this.state = {
+      slideIndex: 0,
+      length: 6,
+      wrapAround: false,
+      underlineHeader: false,
+      slidesToShow: 1.0,
+      cellAlign: 'left',
+      transitionMode: 'scroll',
+      heightMode: 'max',
+      withoutControls: false
+    }
+
+    this.handleImageClick = this.handleImageClick.bind(this);
+  }
+
+  handleImageClick () {
+    this.setState({ underlineHeader: !this.state.underlineHeader });
+  }
+
+  componentDidMount () {
+    this.setState({ state: this.state })
+  }
+
+  render () {
+    return (
+      <div className={css`
+          width: 90vw;
+          margin: auto;
+        `}
+      >
+        <Carousel
+          withoutControls={this.state.withoutControls}
+          transitionMode={this.state.transitionMode}
+          cellAlign={this.state.cellAlign}
+          slidesToShow={this.state.slidesToShow}
+          wrapAround={this.state.wrapAround}
+          slideIndex={this.state.slideIndex}
+          heightMode={this.state.heightMode}
+          renderTopCenterControls={({ currentSlide }) => (
+            <div
+              className={css`
+                font-family: Roboto;
+                color: #fff;
+                text-decoration; ${this.state.underlineHeader
+                  ? 'underline'
+                  : 'none'}
+              `}
+            >
+              Nuka Carousel: Slide {currentSlide + 1}
+            </div>
+          )}
+        >
+          {colors.slice(0, this.state.length).map((color, index) => (
+            <img
+              src={`http://placehold.it/1000x400/${color}/ffffff/&text=slide${index +
+                1}`}
+              key={color}
+              onClick={this.handleImageClick}
+              className={css`
+                height:
+                  ${this.state.heightMode === 'current' ? 100 * (index + 1) : 400};
+              `}
+            />
+          ))}
+        </Carousel>
+        <div className={css`
+            display: flex;
+            justify-content: space-between; 
+          `}
+        >
+          <div>
+            <button onClick={() => this.setState({ slideIndex: 0 })}>1</button>
+            <button onClick={() => this.setState({ slideIndex: 1 })}>2</button>
+            <button onClick={() => this.setState({ slideIndex: 2 })}>3</button>
+            <button onClick={() => this.setState({ slideIndex: 3 })}>4</button>
+            <button onClick={() => this.setState({ slideIndex: 4 })}>5</button>
+            <button onClick={() => this.setState({ slideIndex: 5 })}>6</button>
+          </div>
+          <div>
+            <button
+              onClick={() =>
+                this.setState({
+                  length: 2
+                })
+              }
+            >
+              2 Slides Only
+            </button>
+            <button
+              onClick={() =>
+                this.setState({
+                  transitionMode:
+                    this.state.transitionMode === 'fade' ? 'scroll' : 'fade'
+                })
+              }
+            >
+              Toggle Fade {this.state.transitionMode === 'fade' ? 'Off' : 'On'}
+            </button>
+            <button
+              onClick={() =>
+                this.setState(prevState => ({
+                  wrapAround: !prevState.wrapAround
+                }))
+              }
+            >
+              Toggle Wrap Around
+            </button>
+          </div>
+        </div>
+        {this.state.transitionMode !== 'fade' && (
+          <div className={css`
+              display: flex;
+              justify-content: space-between; 
+          `}>
+            {this.state.slidesToShow > 1.0 && (
+              <div>
+                <button onClick={() => this.setState({ cellAlign: 'left' })}>
+                  Left
+                </button>
+                <button onClick={() => this.setState({ cellAlign: 'center' })}>
+                  Center
+                </button>
+                <button onClick={() => this.setState({ cellAlign: 'right' })}>
+                  Right
+                </button>
+              </div>
+            )}
+            <div className={css`
+              margin-left: auto;
+            `}>
+              <button
+                onClick={() =>
+                  this.setState({
+                    slidesToShow: this.state.slidesToShow > 1.0 ? 1.0 : 1.25
+                  })
+                }
+              >
+                Toggle Partially Visible Slides
+              </button>
+              <button
+                onClick={() =>
+                  this.setState({
+                    heightMode:
+                      this.state.heightMode === 'current' ? 'max' : 'current'
+                  })
+                }
+              >
+                Toggle Height Mode Current
+              </button>
+              <button
+                onClick={() =>
+                  this.setState({
+                    withoutControls: !this.state.withoutControls
+                  })
+                }
+              >
+                Toggle Controls
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+    )
+  }
+}
+
+export default CardSlider

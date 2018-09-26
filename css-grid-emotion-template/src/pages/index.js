@@ -2,22 +2,18 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import styled, { css } from "react-emotion"
 import { rhythm } from "../utils/typography"
-import { Layout } from "../components"
-import theme from "../../config/theme"
+import { Layout, Slug, CardSlider } from "../components"
+// import theme from "../../config/theme"
+
 
 
 const Grid = styled.div `
   display: grid;
-  grid-template-areas:
-    "Slug"
-    "Cards"
-    "News"
-    "BreakingNews"
-    "";
+  grid-template-columns: 1fr;
+
   margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1200px;
   padding-left: 5%;
   padding-right: 5%;
 `
@@ -28,32 +24,18 @@ const IndexPageTitle = styled.h1 `
   border-bottom: 1px solid;
 `
 
-const SlugBlock = styled.h4 `
-  font-weight: bold;
-  font-size: 0.8em;
-  line-height: 1.4;
-  font-weight: bold;
-  border-left: 5px solid;
-  border-color: ${theme.colors.themeColor1};
-  padding-left: 10px;
-  margin-bottom: 20px;
-`
-
-const LatestSlug = styled.div `
-
-`
-
 export default ({ data }) => {
   console.log(data)
   return (
     <Layout>
       <Grid>
-        <SlugBlock>
-          <LatestSlug>
-            LATEST 
-          </LatestSlug>
-        </SlugBlock>
+        <Slug slugTitle='LATEST' />
 
+        <CardSlider cardSlug='Test Slug'>
+        </CardSlider>
+
+        <Slug slugTitle='RECENT' />
+        
         <IndexPageTitle>
           Amazing Index Page Title!
         </IndexPageTitle>
