@@ -10,8 +10,6 @@ import { Layout, Slug, CardRow, BreakingSlug } from "../components"
 const Grid = styled.div `
   display: grid;
   grid-template-columns: 1fr;
-
-  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 5%;
@@ -26,6 +24,7 @@ const IndexPageTitle = styled.h1 `
 
 export default ({ data }) => {
   console.log(data)
+  const newsArticle = data.allMarkdownRemark.edges[0].node
   return (
     <Layout>
       <Grid>
@@ -34,12 +33,15 @@ export default ({ data }) => {
         <CardRow articles={[]}>
         </CardRow>
 
-        <BreakingSlug slugTitle='Breaking News' article={1} />
+        <BreakingSlug
+          slugTitle='Breaking News'
+          article={newsArticle}
+        />
 
         <Slug slugTitle='news' />
 
         <IndexPageTitle>
-          Amazing Index Page Title!
+          Amazing Index Page Title! 
         </IndexPageTitle>
 
         <h4>{data.allMarkdownRemark.totalCount} Posts</h4>

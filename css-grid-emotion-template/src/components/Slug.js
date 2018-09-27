@@ -10,7 +10,7 @@ const SlugBlock = styled.h4 `
   border-left: 5px solid;
   border-color: ${theme.colors.accentColor1};
   padding-left: 10px;
-  margin: 20px 0;
+  margin: 30px 0 20px 0;
 `
 
 const Slug = ({ slugTitle }) => (

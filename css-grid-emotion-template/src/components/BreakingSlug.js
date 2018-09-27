@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import styled, { css } from "react-emotion"
 import theme from "../../config/theme"
 
@@ -6,7 +7,7 @@ const SlugWrapper = styled.div `
   display: grid;
   grid-template-columns: 150px 3fr;
   background: ${theme.colors.themeColor2}; 
-  margin: 0;
+  margin: 20px 0 0 0;
 `
 const BreakingBlock = styled.h4 `
   display: block;
@@ -17,9 +18,12 @@ const BreakingBlock = styled.h4 `
   background: ${theme.colors.themeColor2}; 
   padding: 8px 0;
   margin: 0 auto;
-  margin-bottom: px;
   border-radius: 2px;
   width
+`
+
+const NewsWrapper = styled.div `
+  background: ${theme.colors.themeColor1}; 
 `
 
 const NewsBlock = styled.h4 `
@@ -29,7 +33,8 @@ const NewsBlock = styled.h4 `
   color: ${theme.colors.themeColor2};
   background: ${theme.colors.accentColor1}; 
   padding: 8px 20px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
+  border-radius: 2px;
 `
 
 const BreakingSlug = ({ slugTitle, article }) => (
@@ -42,9 +47,18 @@ const BreakingSlug = ({ slugTitle, article }) => (
       </div>
 
     </BreakingBlock>
-    <NewsBlock>
-      {article}
-    </NewsBlock>
+    <NewsWrapper>
+      <NewsBlock>
+        <Link
+          to={article.fields.slug}
+          className={css `
+            color: ${theme.colors.themeColor2};
+          `}
+        >
+          {article.frontmatter.title.toString()}
+        </Link>
+      </NewsBlock>
+    </NewsWrapper>
   </SlugWrapper>
 )
 
