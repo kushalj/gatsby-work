@@ -8,7 +8,7 @@ import theme from '../../config/theme'
 const Header = styled.div `
   display: grid;
   grid-template-columns: 1fr;
-  background: ${theme.colors.header_bg};
+  background: ${theme.colors.themeColor2};
 `
 
 const HeaderContent = styled.div `
@@ -20,8 +20,8 @@ const HeaderContent = styled.div `
 const HeaderMenu = styled.div `
   display: grid;
   align-items: stretch;
-  background: ${theme.colors.themeColor1};
-  border-color: ${theme.colors.header_bg};
+  background: ${theme.colors.accentColor1};
+  border-color: ${theme.colors.themeColor2};
   border-bottom: 1px solid;
 `
 
@@ -56,15 +56,35 @@ export default ({ siteTitle, menuItems }) => (
     </Social>
   
     <Link to={`/`}>
-      <h3
+      <div className={css `
+      `}>
+        <span
+          className={css `
+            margin: 0;
+            font-style: normal;
+            font-size: 3em;
+            font-weight: bold;
+            font-family: 'Bowlby One', cursive;
+            color: ${theme.colors.themeColor1};
+
+          `}
+        >
+          {siteTitle.split(' ')[0].toUpperCase()}
+        </span>
+        <span
         className={css `
+          margin: 0;
           font-style: normal;
-          color: ${theme.colors.header_color};
+          font-size: 3em;
+          font-weight: bold;
+          font-family: 'Bowlby One', cursive;
+          color: ${theme.colors.accentColor1};
 
         `}
       >
-        {siteTitle}
-      </h3>
+        {siteTitle.split(' ')[1].toUpperCase()}
+        </span>
+      </div>
     </Link>
 
       <Search>

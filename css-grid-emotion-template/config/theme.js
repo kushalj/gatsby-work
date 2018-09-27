@@ -14,9 +14,13 @@ module.exports = {
     // linkHover: '#79a8ff',
     linkHover: '#797979',
 
-    themeColor1: '#FCD666',
-    header_bg: 'black',
-    header_color: 'white',
+    // accentColor1: '#41CCB4', 
+    accentColor1: '#FCD666',
+
+    themeColor1: 'white',
+    // themeColor2: '#742038',
+    
+    themeColor2: 'black',
   },
 
   maxWidths: {

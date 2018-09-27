@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import styled, { css } from "react-emotion"
 import { rhythm } from "../utils/typography"
-import { Layout, Slug, CardSlider } from "../components"
+import { Layout, Slug, CardRow, BreakingSlug } from "../components"
 // import theme from "../../config/theme"
 
 
@@ -29,13 +29,15 @@ export default ({ data }) => {
   return (
     <Layout>
       <Grid>
-        <Slug slugTitle='LATEST' />
+        <Slug slugTitle='Latest' />
 
-        <CardSlider cardSlug='Test Slug'>
-        </CardSlider>
+        <CardRow articles={[]}>
+        </CardRow>
 
-        <Slug slugTitle='RECENT' />
-        
+        <BreakingSlug slugTitle='Breaking News' article={1} />
+
+        <Slug slugTitle='news' />
+
         <IndexPageTitle>
           Amazing Index Page Title!
         </IndexPageTitle>

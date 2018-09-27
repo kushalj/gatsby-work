@@ -8,14 +8,14 @@ const SlugBlock = styled.h4 `
   line-height: 1.4;
   font-weight: bold;
   border-left: 5px solid;
-  border-color: ${theme.colors.themeColor1};
+  border-color: ${theme.colors.accentColor1};
   padding-left: 10px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 `
 
 const Slug = ({ slugTitle }) => (
   <SlugBlock>
-    {slugTitle}
+    {slugTitle.toUpperCase()}
   </SlugBlock>
 )
 
