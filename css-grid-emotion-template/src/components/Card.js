@@ -7,7 +7,7 @@ const CardWrapper = styled.article `
   display: grid;
   position: relative;
   grid-template-columns: 1fr;
-  height: 40vh;
+  height: 35vh;
 `
 
 const CardOverlay = styled.span `

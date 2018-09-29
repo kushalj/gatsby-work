@@ -2,8 +2,11 @@ import React from "react"
 import { Link } from "gatsby"
 import styled, { css } from "react-emotion"
 import theme from '../../config/theme'
+import facepaint from 'facepaint'
 // import { rhythm } from "../utils/typography"
 // import { FaBars } from 'react-icons/fa'
+
+
 
 const Header = styled.div `
   display: grid;
@@ -14,28 +17,51 @@ const Header = styled.div `
 const HeaderContent = styled.div `
   display: flex;
   justify-content: space-around;
-  padding: 30px 0;
+  padding: 14px 0;
 `
 
-const HeaderMenu = styled.div `
+const MenuBar = styled.div `
   display: grid;
   align-items: stretch;
   background: ${theme.colors.accentColor1};
-  border-color: ${theme.colors.themeColor2};
-  border-bottom: 1px solid;
 `
 
-const HeaderMenuItems = styled.div `
+const MenuBarItems = styled.div `
   display: flex;
   justify-content: center;
-  padding: 9px 30px;
+  padding: 12px 30px 0;
 `
 
 const MenuItem = styled.h3 `
+  position: relative;
   margin: 0 15px;
   font-size: 0.8em;
   line-height: 1.4;
   font-weight: bold;
+  padding: 0 0 12px;
+`
+
+const MenuUnderLine = styled.div `
+  a:before
+    {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    background: #000;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    opacity: 0;
+    transition: all 300ms ease;
+  }
+
+  a:hover:before
+    {
+    left: 0;
+    width: 100%;
+    opacity: 1;
+  }
 `
 
 const Social = styled.div `
@@ -45,6 +71,21 @@ const Social = styled.div `
 const Search = styled.div `
 
 `
+
+const mq = facepaint(
+  theme.breakpoints.map(bp => `@media (min-width: ${bp}px)`)
+)
+
+const menuMediaStyles = css(
+  mq({
+    height: [ '0%', '0%', '100%', '100%']
+  })
+)
+
+
+const activeLinkStyle = {
+  color: '#999999',
+}
 
 
 
@@ -92,19 +133,19 @@ export default ({ siteTitle, menuItems }) => (
       </Search>
     </HeaderContent>
 
-    <HeaderMenu>
-      <HeaderMenuItems>
+    <MenuBar>
+      <MenuBarItems>
         {/* Home "/" menu item */}
         <MenuItem>
-          <Link 
-            to="/"
-            className={css `color: black;`}
-            activeStyle={{
-              color: '#888888'
-            }}
-          >
-            {'Home'.toUpperCase()}
-          </Link>
+        <MenuUnderLine>
+            <Link 
+              to="/"
+              className={css `color: black;`}
+              activeStyle={activeLinkStyle}
+            >
+              {'Home'.toUpperCase()}
+            </Link>
+          </MenuUnderLine>
         </MenuItem>  
 
         {/* All except "/" */}
@@ -112,20 +153,20 @@ export default ({ siteTitle, menuItems }) => (
           .filter(item => item.length > 1)
           .map((item, index) =>  
           <MenuItem>
-            <Link
-              to={`/${item}/`.toLowerCase()}
-              className={css `color: black;`}
-              activeStyle={{
-                color: '#888888'
-              }}
-            >
-              {item.toUpperCase()}
-            </Link>
+            <MenuUnderLine>
+              <Link
+                to={`/${item}/`.toLowerCase()}
+                className={css `color: black;`}
+                activeStyle={activeLinkStyle}
+              >
+                {item.toUpperCase()}
+              </Link>
+            </MenuUnderLine>
           </MenuItem>
           )
         }
-      </HeaderMenuItems>
+      </MenuBarItems>
 
-    </HeaderMenu>
+    </MenuBar>
   </Header>
 )

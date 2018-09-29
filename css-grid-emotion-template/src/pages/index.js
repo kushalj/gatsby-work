@@ -6,7 +6,6 @@ import { Layout, Slug, CardRow, BreakingSlug } from "../components"
 // import theme from "../../config/theme"
 
 
-
 const Grid = styled.div `
   display: grid;
   grid-template-columns: 1fr;
@@ -23,7 +22,7 @@ const IndexPageTitle = styled.h1 `
 `
 
 export default ({ data }) => {
-  console.log(data)
+  //console.log(data)
   const newsArticle = data.allMarkdownRemark.edges[0].node
   return (
     <Layout>

@@ -8,7 +8,6 @@ const SlugWrapper = styled.div `
   grid-template-columns: 150px 3fr;
   background: ${theme.colors.themeColor2}; 
   margin: 20px 0 0 0;
-  border-radius: 3px;
 `
 const BreakingBlock = styled.h4 `
   display: block;
@@ -19,6 +18,7 @@ const BreakingBlock = styled.h4 `
   background: ${theme.colors.themeColor2}; 
   padding: 8px 0;
   margin: 0 auto;
+  border-radius: 2px;
   width
 `
 
@@ -34,7 +34,7 @@ const NewsBlock = styled.h4 `
   background: ${theme.colors.accentColor1}; 
   padding: 8px 20px;
   margin-bottom: 0;
-  border-radius: 3px;
+  border-radius: 2px;
 `
 
 const BreakingSlug = ({ slugTitle, article }) => (
